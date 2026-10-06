@@ -14,6 +14,8 @@ var current_page: Page
 var current_tool: Tool:
 	set(value):
 		current_tool = value
+		if canvas and canvas.is_node_ready():
+			canvas.set_tool_cursor(value)
 		tool_changed.emit(value)
 
 
